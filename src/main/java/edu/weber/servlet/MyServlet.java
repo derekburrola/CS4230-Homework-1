@@ -42,6 +42,7 @@ public class MyServlet extends HttpServlet{
 		String lN = req.getParameter("inputlName");
 		String add1 = req.getParameter("inputAddress");
 		String add2 = req.getParameter("inputAddress2");
+		String phn = req.getParameter("inputPhone");
 		String city = req.getParameter("inputCity");
 		String state = req.getParameter("inputState");
 		String zip = req.getParameter("inputZip");
@@ -51,20 +52,19 @@ public class MyServlet extends HttpServlet{
 		arr.add(fN);
 		arr.add(lN);
 		arr.add(add1);
+		arr.add(phn);
 		arr.add(city);
 		arr.add(zip);
-		
-		String inputState = req.getParameter("inputState");
 		
 		if(areInputsValid(arr) ) {//&& inputState != "...") {
 
 			ContactService cs = ContactService.getInstance();
 
-			String fName = req.getParameter("inputfName");
-			String lName = req.getParameter("inputlName");
+			String fName = fN;
+			String lName = lN;
 
 			Set<String> phones = new HashSet<String>();
-			phones.add(req.getParameter("inputPhone"));
+			phones.add(phn);
 
 			Address addr[] = new Address[2];
 			
