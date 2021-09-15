@@ -40,14 +40,11 @@ public class MyServlet extends HttpServlet{
 		arr.add(req.getParameter("inputAddress"));
 		arr.add(req.getParameter("inputAddress2"));
 		arr.add(req.getParameter("inputCity"));
-		//arr.add(req.getParameter("inputState"));
 		arr.add(req.getParameter("inputZip"));
 		
-		for(int i = 0; i < arr.size()-1; i++) {
-			print(arr.get(i));
-		}
+		String inputState = req.getParameter("inputState");
 		
-		if(areInputsValid(arr)) {
+		if(areInputsValid(arr) && inputState != "...") {
 
 			ContactService cs = ContactService.getInstance();
 
