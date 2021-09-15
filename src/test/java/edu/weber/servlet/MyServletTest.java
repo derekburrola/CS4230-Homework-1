@@ -4,7 +4,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.junit.Before;
@@ -13,8 +17,10 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import edu.weber.model.Address;
 import edu.weber.model.Contact;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -73,6 +79,61 @@ public class MyServletTest {
 
 	}	
 	
+	
+	@Test 
+	public void doSetHasRequestAttributeContacts() throws ServletException, IOException {
+		
+	}
+	
+	
+	
+	@Test
+	public void doAreInputsValidFalse() {
+		
+		MyServlet ms = new MyServlet();
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("");
+		
+		Assert.assertFalse(ms.areInputsValid(arr));
+		
+	}
+	
+	@Test
+	public void doAreInputsValidTrue() {
+		
+		MyServlet ms = new MyServlet();
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("Testing in progress");
+		
+		Assert.assertTrue(ms.areInputsValid(arr));
+		
+	}
+	
+	@Test 
+	public void doMakeAddressFromCityWorks() {
+		
+		MyServlet ms = new MyServlet();
+		
+		
+		Map<String, String> addrSet = new HashMap<String, String>();
+		String add1 = "13 East New York";
+		String add2 = "";
+		String city = "London";
+		String state = "Michigan";
+		String zip = "1234";
+		String type = "Home";
+		
+		addrSet.put("inputAddress", add1);
+		addrSet.put("inputAddress2", add2);
+		addrSet.put("inputCity", city);
+		addrSet.put("inputState", state);
+		addrSet.put("inputZip", zip);
+		addrSet.put("inpuAddressType", type);
+		
+		Address addr = ms.makeAddressFrom(addrSet);
+		
+		Assert.assertTrue(addr.getCity() == "London");
+	}
 	
 	
 	

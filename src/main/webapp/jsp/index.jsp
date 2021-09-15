@@ -18,71 +18,65 @@
 
 	<div class="row">
 
-		<!-- Left Side  -->
-		<div class="col"></div>
+		<!-- Left Side Blank -->
+		<div class="col-3"></div>
 
-		<!-- Middle Section -->
+		<!-- Contacts -->
 		<div class="col-5">
 			<h1>Contacts</h1>
 			<hr />
 
 
-			<div>
-				<c:forEach items="${contacts}" var="contact">
+			<c:forEach items="${contacts}" var="contact">
 
-					<div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)">
-						<div class="row" style="padding: 30px">
-							<div class="col">
-								<div class="row">
-									Name:
-									<c:out value="${contact.firstName } ${contact.lastName }" />
-								</div>
-							</div>
-							<div class="col">
-								<c:forEach items="${contact.phoneNumbers}" var="phn">
-									<div class="row">
-										Phone Num:
-										<c:out value="${phn}" />
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-
-						<div class="row">
-
-							<div class="col-1"></div>
-							<div class="col-8">
-								<c:forEach items="${contact.address }" var="addr">
-									<hr />
-									<div class="row">
-										<div class="col">
-										<c:out value="${addr.addressType } Address"/>
-										</div>
-										<div class="col-8">
-											<c:out value="${addr.address1 }" />
-											<c:out value="${addr.address2 }" />
-											<br />
-											<c:out
-												value="${addr.city }, ${addr.state }, ${addr.zipCode }" />
-										</div>
-									</div>
-								</c:forEach>
-
-							</div>
-							<div class="col"></div>
-
-						</div>
-						<hr />
+				<div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding:30px">
+					<div class="row">
+						<h3>
+							<c:out value="${contact.firstName } ${contact.lastName }" />
+						</h3>
 					</div>
-				</c:forEach>
-			</div>
+					<div class="row">
+						<c:forEach items="${contact.phoneNumbers}" var="phn">
+							<div class="row">
+								
+								<c:out value="Phone Num: ${phn}" />
+							</div>
+						</c:forEach>
+					</div>
+
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-8">
+							<c:forEach items="${contact.address }" var="addr">
+								<hr />
+								<div class="row">
+									<div class="col">
+										<c:out value="${addr.addressType } Address" />
+									</div>
+									<div class="col-8">
+										<c:out value="${addr.address1 }" />
+										<c:out value="${addr.address2 }" />
+										<br />
+										<c:out value="${addr.city }, ${addr.state }, ${addr.zipCode }" />
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+						<div class="col-2"></div>
+					</div>
+					<hr />
+				</div>
+				<br/>
+			</c:forEach>
+
 
 
 		</div>
-		<!-- Right Side -->
+		<!-- Add New Contact -->
 		<div class="col-3">
 			<br /> <br /> <br />
-			<div class="col-11" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); padding: 10px">
+			<div class="col-11"
+				style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding: 10px">
 				<h4>Add New Contact</h4>
 				<hr />
 
@@ -181,22 +175,25 @@
 								class="form-control" id="inputZip" name="inputZip">
 						</div>
 						<div class="form-group col-md-3">
-							<label for="inputAddressType">Address Type</label> <select id="inputAddressType"
-								name="inputAddressType" class="form-control">
+							<label for="inputAddressType">Address Type</label> <select
+								id="inputAddressType" name="inputAddressType"
+								class="form-control">
 								<option selected>Home</option>
 								<option selected>Work</option>
 						</div>
 					</div>
-
-					<br /> <input type="submit" value="Save" class="btn btn-primary" />
+					<br /> <input type="submit" id="btnSubmit" name="btnSubmit"
+						value="Add Contact" class="btn btn-block btn-primary" />
 				</form>
+
+
 
 			</div>
 			<div class="col-1"></div>
 		</div>
 
-		<!-- Right Side -->
-		<div class="col-2"></div>
+		<!-- Right Side Blank -->
+		<div class="col-1"></div>
 	</div>
 
 
