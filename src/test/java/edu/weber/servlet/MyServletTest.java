@@ -82,7 +82,7 @@ public class MyServletTest {
 		Set contactsCollection = servletRequestCapture.getValue();
 		Assert.assertTrue(contactsCollection.size() > 0);
 
-	}	
+	}	 
 
 
 	@Test 
@@ -105,9 +105,10 @@ public class MyServletTest {
 
 		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
 
+		when(request.getParameter(ArgumentMatchers.any(String.class))).thenReturn("aaa");
 		testObj.doPost(request, response);
 
-		verify(request, times(8)).getParameterValues(servletRequestCapture.capture());
+		verify(request, times(9)).getParameterValues(servletRequestCapture.capture());
 
 		Assert.assertNotNull(servletRequestCapture.getValue());
 	}
