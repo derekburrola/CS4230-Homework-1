@@ -85,20 +85,6 @@ public class MyServletTest {
 	}	 
 
 
-	@Test  
-	public void doSetHasRequestAttributeContacts() throws ServletException, IOException {
-		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
-
-		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-		when(testObj.areInputsValid((ArrayList<String>) ArgumentMatchers.any())).thenReturn(true);
-		testObj.doPost(request, response);
-
-		verify(request).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
-
-		Assert.assertNotNull(servletRequestCapture.getValue());
-	}
-
-
 	@Test
 	public void testPost() throws ServletException, IOException{
 		ArgumentCaptor<String> servletRequestCapture = ArgumentCaptor.forClass(String.class);
