@@ -31,8 +31,6 @@ public class MyServlet extends HttpServlet{
 		req.setAttribute("err", req.getParameter("err"));
 		req.setAttribute("contacts", service.getContacts());
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
-		
-		//lblError
 	} 
 
 	@Override
@@ -52,7 +50,7 @@ public class MyServlet extends HttpServlet{
 		arr.add(fN);
 		arr.add(lN);
 		arr.add(add1);
-		arr.add(phn);
+		arr.add(phn); 
 		arr.add(city);
 		arr.add(zip);
 		

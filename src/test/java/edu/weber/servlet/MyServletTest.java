@@ -59,7 +59,7 @@ public class MyServletTest {
 		ArgumentCaptor<Collection> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
 
 		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-		when(request.getParameter("err")).thenReturn("");
+		//when(request.getParameter("err")).thenReturn("");
 		testObj.doGet(request, response);
 
 
@@ -84,7 +84,7 @@ public class MyServletTest {
 
 	}	 
 
-
+ 
 	@Test
 	public void testPost() throws ServletException, IOException{
 		ArgumentCaptor<String> servletRequestCapture = ArgumentCaptor.forClass(String.class);
