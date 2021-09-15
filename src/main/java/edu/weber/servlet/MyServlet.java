@@ -48,7 +48,7 @@ public class MyServlet extends HttpServlet{
 		
 		String inputState = req.getParameter("inputState");
 		
-		if(areInputsValid(arr) && inputState != "...") {
+		if(areInputsValid(arr) ) {//&& inputState != "...") {
 
 			ContactService cs = ContactService.getInstance();
 
