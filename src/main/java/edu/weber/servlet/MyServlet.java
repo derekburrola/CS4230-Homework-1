@@ -98,7 +98,7 @@ public class MyServlet extends HttpServlet{
 		
 		for(int i=0; i < arr.size(); i++) {
 			String s = arr.get(i);
-			
+			 
 			if(s.length() == 0 || s == "") {
 				return false;
 			}
@@ -117,10 +117,6 @@ public class MyServlet extends HttpServlet{
 		Address addr = new Address(add1, add2, city, state, zip);
 		addr.setAddressType(type);
 		return addr;
-	}
-
-	private void print(Object o) {
-		System.out.println(o.toString());
 	}
 
 }

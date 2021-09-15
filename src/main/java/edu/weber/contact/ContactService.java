@@ -38,6 +38,10 @@ public class ContactService {
 		
 	}
 	
+	public ContactService() {
+		
+	}
+	
 	
 	public Collection<Contact> getContacts(){
 		return contacts;
