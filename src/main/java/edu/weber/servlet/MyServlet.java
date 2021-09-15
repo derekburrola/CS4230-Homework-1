@@ -38,7 +38,7 @@ public class MyServlet extends HttpServlet{
 		arr.add(req.getParameter("inputlName"));
 		arr.add(req.getParameter("inputPhone"));
 		arr.add(req.getParameter("inputAddress"));
-		arr.add(req.getParameter("inputAddress2"));
+		//arr.add(req.getParameter("inputAddress2"));
 		arr.add(req.getParameter("inputCity"));
 		arr.add(req.getParameter("inputZip"));
 		
@@ -107,9 +107,10 @@ public class MyServlet extends HttpServlet{
 		String city = req.getParameter("inputCity");
 		String state = req.getParameter("inputState");
 		String zip = req.getParameter("inputZip");
+		String type = req.getParameter("inputAddressType");
 
-		Address addr = new Address(add1, "","","","");
-		//Address addr = new Address(add1, add2, city, state, zip);
+		Address addr = new Address(add1, add2, city, state, zip);
+		addr.setAddressType(type);
 		return addr;
 	}
 

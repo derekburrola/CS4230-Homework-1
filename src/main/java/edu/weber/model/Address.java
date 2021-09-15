@@ -12,7 +12,7 @@ public class Address implements Serializable {
 	private String state;
 	private String zipCode;
 	private String addressType;
-	
+
 	public Address() {
 		this(null,null,null,null);
 	}
@@ -73,15 +73,17 @@ public class Address implements Serializable {
 		this.zipCode = zipCode;
 	}
 	
+	public String getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+	}
 	
 	@Override
 	public String toString() {
 		return "Address [address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state=" + state
 				+ ", zipCode=" + zipCode + "]";
 	}
-	
-	@SuppressWarnings("unused")
-	private enum AddressTypes{
-		HOME, BUSSINESS
-	} 
 }
