@@ -1,0 +1,5 @@
+edu/weber/model/Address$AddressTypes.class
+edu/weber/contact/ContactService.class
+edu/weber/model/Address.class
+edu/weber/model/Contact.class
+edu/weber/servlet/MyServlet.class
