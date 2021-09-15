@@ -85,7 +85,7 @@ public class MyServletTest {
 	}	 
 
 
-	@Test 
+	@Test  
 	public void doSetHasRequestAttributeContacts() throws ServletException, IOException {
 		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
 

@@ -33,7 +33,7 @@ public class MyServlet extends HttpServlet{
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
 		
 		//lblError
-	}
+	} 
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
