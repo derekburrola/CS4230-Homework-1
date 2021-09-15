@@ -24,6 +24,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.google.protobuf.Any;
 
+import edu.weber.contact.ContactService;
 import edu.weber.model.Address;
 import edu.weber.model.Contact;
 import jakarta.servlet.RequestDispatcher;
@@ -46,6 +47,9 @@ public class MyServletTest {
 
 	@Mock
 	HttpServletResponse response;
+	
+	@Mock
+	ContactService cs;
 
 	MyServlet testObj;
 
@@ -69,6 +73,7 @@ public class MyServletTest {
 
 	}
 
+	
 	@Test
 	public void doGetHasRequestAttributeContactsHasDefault() throws ServletException, IOException {
 		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
@@ -84,7 +89,7 @@ public class MyServletTest {
 
 	}	 
 
- 
+  
 	@Test
 	public void testPost() throws ServletException, IOException{
 		ArgumentCaptor<String> servletRequestCapture = ArgumentCaptor.forClass(String.class);

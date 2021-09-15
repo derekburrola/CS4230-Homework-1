@@ -1,7 +1,6 @@
 package edu.weber.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -27,12 +26,14 @@ public class MyServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ContactService service = new ContactService();
-		req.setAttribute("err", req.getParameter("err"));
+		ContactService service = ContactService.getInstance()
+;		req.setAttribute("err", req.getParameter("err"));
 		req.setAttribute("contacts", service.getContacts());
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
 	} 
 
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -82,7 +83,7 @@ public class MyServlet extends HttpServlet{
 			Contact c = new Contact(fName, lName);
 			c.setPhoneNumbers(phones);
  			c.setAddress(addr);
-			cs.addContact(c);
+			cs.addContact(c); 
 
 
 			resp.sendRedirect("./");
