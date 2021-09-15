@@ -53,7 +53,7 @@ public class MyServletTest {
 	public void setup() {
 		testObj = new MyServlet();
 	} 
-
+ 
 	@Test
 	public void doGetHasRequestAttributeContacts() throws ServletException, IOException {
 		ArgumentCaptor<Collection> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
@@ -103,12 +103,11 @@ public class MyServletTest {
 	public void testPost() throws ServletException, IOException{
 		ArgumentCaptor<String> servletRequestCapture = ArgumentCaptor.forClass(String.class);
 
-		//when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-
+		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
 
 		testObj.doPost(request, response);
 
-		verify(request, times(6)).getParameterValues(servletRequestCapture.capture());
+		verify(request, times(8)).getParameterValues(servletRequestCapture.capture());
 
 		Assert.assertNotNull(servletRequestCapture.getValue());
 	}

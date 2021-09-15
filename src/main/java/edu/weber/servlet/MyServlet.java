@@ -38,13 +38,21 @@ public class MyServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String fN = req.getParameter("inputfName");
+		String lN = req.getParameter("inputlName");
+		String add1 = req.getParameter("inputAddress");
+		String add2 = req.getParameter("inputAddress2");
+		String city = req.getParameter("inputCity");
+		String state = req.getParameter("inputState");
+		String zip = req.getParameter("inputZip");
+		String type = req.getParameter("inputAddressType");
+		
 		ArrayList<String> arr = new ArrayList<String>();
-		arr.add(req.getParameter("inputfName"));
-		arr.add(req.getParameter("inputlName"));
-		arr.add(req.getParameter("inputPhone"));
-		arr.add(req.getParameter("inputAddress"));
-		arr.add(req.getParameter("inputCity"));
-		arr.add(req.getParameter("inputZip"));
+		arr.add(fN);
+		arr.add(lN);
+		arr.add(add1);
+		arr.add(city);
+		arr.add(zip);
 		
 		String inputState = req.getParameter("inputState");
 		
@@ -62,12 +70,6 @@ public class MyServlet extends HttpServlet{
 			
 			
 			Map<String, String> addrSet = new HashMap<String, String>();
-			String add1 = req.getParameter("inputAddress");
-			String add2 = req.getParameter("inputAddress2");
-			String city = req.getParameter("inputCity");
-			String state = req.getParameter("inputState");
-			String zip = req.getParameter("inputZip");
-			String type = req.getParameter("inputAddressType");
 			
 			addrSet.put("inputAddress", add1);
 			addrSet.put("inputAddress2", add2);
