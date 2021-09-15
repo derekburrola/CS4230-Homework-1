@@ -28,8 +28,11 @@ public class MyServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ContactService service = new ContactService();
+		req.setAttribute("err", req.getParameter("err"));
 		req.setAttribute("contacts", service.getContacts());
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
+		
+		//lblError
 	}
 
 	@Override
@@ -82,15 +85,11 @@ public class MyServlet extends HttpServlet{
 			cs.addContact(c);
 
 
-			
+			resp.sendRedirect("./");
 		}
 		else {
-			//?? Do something to show that not everything was met
-			//?? PrintWriter maybe
-			PrintWriter pw = resp.getWriter();
-			pw.println("You Must Fill everything out");
+			resp.sendRedirect("./?err=All fields with * must be filled in");
 		}
-		resp.sendRedirect("./");
 
 	}
 

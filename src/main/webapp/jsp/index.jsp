@@ -79,27 +79,27 @@
 				style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding: 10px">
 				<h4>Add New Contact</h4>
 				<hr />
-
+				<h6 style="color:red"><c:out value="${err}" /></h5>
 				<form name="addContactForm" method="post" action="/">
 
 					<div class="form-row">
 						<div class="form-group col-md-9">
-							<label for="inputfName">First Name</label> <input type="text"
+							<label for="inputfName">First Name* </label> <input type="text"
 								class="form-control" id="inputfName" name="inputfName"
 								placeholder="Enter First Name">
 						</div>
 						<div class="form-group col-md-9">
-							<label for="inputlName">Last Name</label> <input type="text"
+							<label for="inputlName">Last Name*</label> <input type="text"
 								class="form-control" id="inputlName" name="inputlName"
 								placeholder="Enter Last Name">
 						</div>
 						<div class="form-grpup col-md-9">
-							<label for="inputPhone">Phone Number</label> <input type="text"
+							<label for="inputPhone">Phone Number*</label> <input type="text"
 								class="form-control" id="inputPhone" name="inputPhone"
 								placeholder="Enter phone number">
 						</div>
 						<div class="form-group col-md-9">
-							<label for="inputAddress">Address</label> <input type="text"
+							<label for="inputAddress">Address*</label> <input type="text"
 								class="form-control" id="inputAddress" name="inputAddress"
 								placeholder="1234 Main St">
 						</div>
@@ -109,12 +109,12 @@
 								placeholder="apt 3">
 						</div>
 						<div class="form-group col-md-6">
-							<label for="inputCity">City</label> <input type="text"
+							<label for="inputCity">City*</label> <input type="text"
 								class="form-control" id="inputCity" name="inputCity"
 								placeholder="New York">
 						</div>
 						<div class="form-group col-md-4">
-							<label for="inputState">State</label> <select id="inputState"
+							<label for="inputState">State*</label> <select id="inputState"
 								name="inputState" class="form-control">
 								<option selected>...</option>
 								<option value="AL">Alabama</option>
@@ -171,7 +171,7 @@
 							</select>
 						</div>
 						<div class="form-group col-md-3">
-							<label for="inputZip">Zipcode</label> <input type="text"
+							<label for="inputZip">Zipcode*</label> <input type="text"
 								class="form-control" id="inputZip" name="inputZip">
 						</div>
 						<div class="form-group col-md-3">
