@@ -19,25 +19,27 @@ public class ContactServiceTest {
 	
 	@Before
 	public void setup() {
+		obj = ContactService.getInstance(); 
 	}
 	
 	
 	@Test
 	public void testGetContactExisting() {
-		ContactService cs = new ContactService();
-		
-		Assert.assertEquals(cs.getContacts().size(), 2);	
+		//ContactService cs = new ContactService();
+		obj.resetSet();
+		Assert.assertEquals(2, obj.getContacts().size());	
 	}
+	
 	
 	@Test
 	public void testAddContact() {
 		
-		ContactService cs = new ContactService();
-		int count = cs.getContacts().size();
+		//ContactService cs = new ContactService();
+		int count = obj.getContacts().size();
 		Contact c = new Contact("person", "one");
 		
-		cs.addContact(c);
+		obj.addContact(c);
 		
-		Assert.assertEquals(cs.getContacts().size(), count+1);
+		Assert.assertEquals(obj.getContacts().size(), count+1);
 	}
 }

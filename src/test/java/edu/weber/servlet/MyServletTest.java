@@ -48,8 +48,6 @@ public class MyServletTest {
 	@Mock
 	HttpServletResponse response;
 	
-	@Mock
-	ContactService cs;
 
 	MyServlet testObj;
 
@@ -58,22 +56,22 @@ public class MyServletTest {
 		testObj = new MyServlet();
 	} 
  
+	
 	@Test
 	public void doGetHasRequestAttributeContacts() throws ServletException, IOException {
-		ArgumentCaptor<Collection> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
-
+		ArgumentCaptor<Collection<String>> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
+		//ArgumentCaptor<String> src = ArgumentCaptor.forClass(String.class);
 		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-		//when(request.getParameter("err")).thenReturn("");
+		when(request.getParameter("err")).thenReturn("");
 		testObj.doGet(request, response);
 
 
-		verify(request).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
-
+		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
+		//verify(request, times(1)).setAttribute(ArgumentMatchers.any(String.class), src);
 		Assert.assertNotNull(servletRequestCapture.getValue());
 
 	}
 
-	
 	@Test
 	public void doGetHasRequestAttributeContactsHasDefault() throws ServletException, IOException {
 		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
@@ -82,30 +80,28 @@ public class MyServletTest {
 		//when(request.getParameter("err")).thenReturn("");
 		testObj.doGet(request, response);
 
-		verify(request).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
+		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
 
 		Set contactsCollection = servletRequestCapture.getValue();
 		Assert.assertTrue(contactsCollection.size() > 0);
 
 	}	 
 
+
   
 	@Test
 	public void testPost() throws ServletException, IOException{
 		ArgumentCaptor<String> servletRequestCapture = ArgumentCaptor.forClass(String.class);
 
-		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-
 		when(request.getParameter(ArgumentMatchers.any(String.class))).thenReturn("aaa");
 		testObj.doPost(request, response);
 
-		verify(request, times(9)).getParameterValues(servletRequestCapture.capture());
+		verify(request, times(9)).getParameter(servletRequestCapture.capture());
 
 		Assert.assertNotNull(servletRequestCapture.getValue());
 	}
 
-
-
+	
 	@Test
 	public void doAreInputsValidFalse() {
 
@@ -153,8 +149,6 @@ public class MyServletTest {
 
 		Assert.assertTrue(addr.getCity() == "London");
 	}
-
-
 
 
 

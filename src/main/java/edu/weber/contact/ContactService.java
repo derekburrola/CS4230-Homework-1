@@ -12,9 +12,13 @@ public class ContactService {
 	private static ContactService INSTANCE;
 	
 	private static Set<Contact> contacts = new HashSet<Contact>();
+
+	private ContactService() {
+		resetSet();
+	}
 	
-	static {
-		
+	protected void resetSet() {
+		contacts = new HashSet<Contact>();
 		Address addr = new Address("12 Starvalley", "galaga", "Space", "00000");
 		Address addr2 = new Address("21 Andraway", "galaga", "Space", "00071");
 		
@@ -35,11 +39,6 @@ public class ContactService {
 		c2.setPhoneNumbers(phns);
 		c2.setAddress(addresses);
 		contacts.add(c2);
-		
-	}
-	
-	public ContactService() {
-		
 	}
 	
 	
@@ -51,13 +50,6 @@ public class ContactService {
 	public void addContact(Contact c) {
 		contacts.add(c);
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	public static ContactService getInstance() {
 		if(INSTANCE == null){

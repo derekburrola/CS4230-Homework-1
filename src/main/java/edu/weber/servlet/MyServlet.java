@@ -26,8 +26,8 @@ public class MyServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ContactService service = ContactService.getInstance()
-;		req.setAttribute("err", req.getParameter("err"));
+		ContactService service = ContactService.getInstance();
+		req.setAttribute("err", req.getParameter("err"));
 		req.setAttribute("contacts", service.getContacts());
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
 	} 
